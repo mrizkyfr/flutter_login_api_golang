@@ -13,10 +13,10 @@ import (
 var DB *gorm.DB
 
 func ConnectDB() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	// Optional .env loading (only in local)
+    	if err := godotenv.Load(); err != nil {
+        	log.Println("No .env file found, using system environment variables")
+    	}
 
 	user := os.Getenv("DB_USER")
 	pass := os.Getenv("DB_PASSWORD")
