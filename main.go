@@ -3,7 +3,6 @@ package main
 import (
 	"flutter_login_api_golang/config"
 	"flutter_login_api_golang/controllers"
-	"flutter_login_api_golang/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,7 +12,7 @@ func main() {
 	r := gin.Default()
 
 	// Tambahkan CORS middleware
-	r.Use(middleware.CORSMiddleware())
+	r.Use(CORSMiddleware())
 
 	r.POST("/api/login", controllers.Login)
 	r.POST("/presensi/siswa", controllers.SiswaPresensi)
